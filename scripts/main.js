@@ -8,3 +8,8 @@ const calculator = {
     console.log(sum);
   },
 };
+
+let display = calculator.display;
+const sum = function(display) {
+  calculator.sum(display);
+};
