@@ -6,23 +6,36 @@
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+
+  <!-- container -->
   <div class="container">
-    <p>Open the JavaScript console!</p>
 
-    <h2>Objects</h2>
-    <ul>
-      <li>Calculator</li>
-    </ul>
+  <!-- display -->
+    <div id="display">
+    </div>
 
-    <h2>Variables</h2>
-    <ul>
-      <li>display</li>
-    </ul>
+  <!-- operators -->
+    <div id="operators">
+      <button onclick="calculator.sum()" class="operator" id="sum">+</button>
+      <button onclick="calculator.difference()" class="operator" id="difference">-</button>
+      <button onclick="calculator.product()" class="operator" id="product">×</button>
+      <button onclick="calculator.quotient()" class="operator" id="quotient">÷</button>
+      <button onclick="calculator.evaluate()" class="operator" id="evaluate">=</button></div>
 
-    <h2>Methods</h2>
-    <ul>
-      <li>sum()</li>
-    </ul>
+  <!-- values -->
+    <div id="values">
+      <button onclick="calculator.one()" class="value" id="one">1</button>
+      <button onclick="calculator.two()" class="value" id="two">2</button>
+      <button onclick="calculator.three()" class="value" id="three">3</button>
+      <button onclick="calculator.four()" class="value" id="four">4</button>
+      <button onclick="calculator.five()" class="value" id="five">5</button>
+      <button onclick="calculator.six()" class="value" id="six">6</button>
+      <button onclick="calculator.seven()" class="value" id="seven">7</button>
+      <button onclick="calculator.eight()" class="value" id="eight">8</button>
+      <button onclick="calculator.nine()" class="value" id="nine">9</button>
+      <button onclick="calculator.zero()" class="value" id="zero">0</button>
+      <button onclick="calculator.decimal()" class="value" id="decimal">.</button>
+    </div>
   </div>
   <script src="scripts/main.js"></script>
 </body>
