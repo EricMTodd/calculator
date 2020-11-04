@@ -1,19 +1,23 @@
 const calculator = {
   // Display array
-  display: [],
+  display: "",
 
   // Operations
-  sum: function() {
-    console.log("SUM");
+  add: function() {
+    this.display = this.display + "+";
+    this.updateDisplay();
   },
-  difference: function() {
-    console.log("DIFFERENCE");
+  subtract: function() {
+    this.display = this.display + "-";
+    this.updateDisplay();
   },
-  product: function() {
-    console.log("PRODUCT");
+  divide: function() {
+    this.display = this.display + "÷";
+    this.updateDisplay();
   },
-  quotient: function() {
-    console.log("QUOTIENT");
+  multiply: function() {
+    this.display = this.display + "×";
+    this.updateDisplay();
   },
   evaluate: function() {
     console.log("EVALUATE");
@@ -21,51 +25,55 @@ const calculator = {
 
   // Values
   one: function() {
-    this.display.push(1)
+    this.display = this.display + "1";
     this.updateDisplay();
   },
   two: function() {
-    this.display.push(2)
+    this.display = this.display + "2";
     this.updateDisplay();
   },
   three: function() {
-    this.display.push(3)
+    this.display = this.display + "3";
     this.updateDisplay();
   },
   four: function() {
-    this.display.push(4)
+    this.display = this.display + "4";
     this.updateDisplay();
   },
   five: function() {
-    this.display.push(5)
+    this.display = this.display + "5";
     this.updateDisplay();
   },
   six: function() {
-    this.display.push(6)
+    this.display = this.display + "6";
     this.updateDisplay();
   },
   seven: function() {
-    this.display.push(7)
+    this.display = this.display + "7";
     this.updateDisplay();
   },
   eight: function() {
-    this.display.push(8)
+    this.display = this.display + "8";
     this.updateDisplay();
   },
   nine: function() {
-    this.display.push(9)
+    this.display = this.display + "9";
     this.updateDisplay();
   },
   zero: function() {
-    this.display.push(0)
+    this.display = this.display + "0";
     this.updateDisplay();
   },
   decimal: function() {
-    console.log(".")
+    this.display = this.display + ".";
+    this.updateDisplay();
   },
 
   // Other methods
   updateDisplay: function() {
     document.getElementById("display").innerHTML = this.display;
+  },
+  clear: function() {
+    window.location.href = window.location.pathname + window.location.search + window.location.hash;
   }
 };
