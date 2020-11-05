@@ -4,5 +4,5 @@ Lesson link: https://theodinproject.com/lessons/calculator
 
 # TODO:
 
-- Create avaluation method
-- Create no multiple operators error handling.
+- Add parenthesis buttons.
+- Create avaluation method.

@@ -4,20 +4,20 @@ const calculator = {
 
   // Operations
   add: function() {
-    this.display = this.display + "+";
-    this.updateDisplay();
+    const value = "+";
+    this.checkForMultipleOperators(value);
   },
   subtract: function() {
-    this.display = this.display + "-";
-    this.updateDisplay();
-  },
-  divide: function() {
-    this.display = this.display + "÷";
-    this.updateDisplay();
+    const value = "-";
+    this.checkForMultipleOperators(value);
   },
   multiply: function() {
-    this.display = this.display + "×";
-    this.updateDisplay();
+    const value = "×";
+    this.checkForMultipleOperators(value);
+  },
+  divide: function() {
+    const value = "÷";
+    this.checkForMultipleOperators(value);
   },
   evaluate: function() {
     console.log("EVALUATE");
@@ -25,55 +25,63 @@ const calculator = {
 
   // Values
   one: function() {
-    this.display = this.display + "1";
-    this.updateDisplay();
+    const value = "1";
+    this.updateDisplay(value);
   },
   two: function() {
-    this.display = this.display + "2";
-    this.updateDisplay();
+    const value = "2";
+    this.updateDisplay(value);
   },
   three: function() {
-    this.display = this.display + "3";
-    this.updateDisplay();
+    const value = "3";
+    this.updateDisplay(value);
   },
   four: function() {
-    this.display = this.display + "4";
-    this.updateDisplay();
+    const value = "4";
+    this.updateDisplay(value);
   },
   five: function() {
-    this.display = this.display + "5";
-    this.updateDisplay();
+    const value = "5";
+    this.updateDisplay(value);
   },
   six: function() {
-    this.display = this.display + "6";
-    this.updateDisplay();
+    const value = "6";
+    this.updateDisplay(value);
   },
   seven: function() {
-    this.display = this.display + "7";
-    this.updateDisplay();
+    const value = "7";
+    this.updateDisplay(value);
   },
   eight: function() {
-    this.display = this.display + "8";
-    this.updateDisplay();
+    const value = "8";
+    this.updateDisplay(value);
   },
   nine: function() {
-    this.display = this.display + "9";
-    this.updateDisplay();
+    const value = "9";
+    this.updateDisplay(value);
   },
   zero: function() {
-    this.display = this.display + "0";
-    this.updateDisplay();
+    const value = "0";
+    this.updateDisplay(value);
   },
   decimal: function() {
-    this.display = this.display + ".";
-    this.updateDisplay();
+    const value = ".";
   },
 
   // Other methods
-  updateDisplay: function() {
+  updateDisplay: function(value) {
+    this.display = this.display + value;
     document.getElementById("display").innerHTML = this.display;
   },
   clear: function() {
     window.location.href = window.location.pathname + window.location.search + window.location.hash;
+  },
+  checkForMultipleOperators: function(value) {
+    const last = this.display[this.display.length - 1];
+    if (last == "+" || last == "-" || last == "×" || last == "÷") {
+      alert("You cannot have multiple adjacent operators!");
+    } else {
+      this.updateDisplay(value);
+    }
   },
 };
