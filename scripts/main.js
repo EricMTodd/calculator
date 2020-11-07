@@ -3,80 +3,81 @@ const calculator = {
   display: "",
 
   // Operations
-  add: function() {
+  add: function () {
     const value = "+";
     this.checkForMultipleOperators(value);
   },
-  subtract: function() {
+  subtract: function () {
     const value = "-";
     this.checkForMultipleOperators(value);
   },
-  multiply: function() {
+  multiply: function () {
     const value = "×";
     this.checkForMultipleOperators(value);
   },
-  divide: function() {
+  divide: function () {
     const value = "÷";
     this.checkForMultipleOperators(value);
   },
-  evaluate: function() {
+  evaluate: function () {
     console.log("EVALUATE");
   },
 
   // Values
-  one: function() {
+  one: function () {
     const value = "1";
     this.updateDisplay(value);
   },
-  two: function() {
+  two: function () {
     const value = "2";
     this.updateDisplay(value);
   },
-  three: function() {
+  three: function () {
     const value = "3";
     this.updateDisplay(value);
   },
-  four: function() {
+  four: function () {
     const value = "4";
     this.updateDisplay(value);
   },
-  five: function() {
+  five: function () {
     const value = "5";
     this.updateDisplay(value);
   },
-  six: function() {
+  six: function () {
     const value = "6";
     this.updateDisplay(value);
   },
-  seven: function() {
+  seven: function () {
     const value = "7";
     this.updateDisplay(value);
   },
-  eight: function() {
+  eight: function () {
     const value = "8";
     this.updateDisplay(value);
   },
-  nine: function() {
+  nine: function () {
     const value = "9";
     this.updateDisplay(value);
   },
-  zero: function() {
+  zero: function () {
     const value = "0";
     this.updateDisplay(value);
   },
-  decimal: function() {
+  decimal: function () {
     const value = ".";
+    this.updateDisplay(value);
   },
 
   // Other methods
-  updateDisplay: function(value) {
+  clear: function () {
+    window.location.href = window.location.pathname + window.location.search + window.location.hash;
+  },
+  updateDisplay: function (value) {
     this.display = this.display + value;
     document.getElementById("display").innerHTML = this.display;
   },
-  clear: function() {
-    window.location.href = window.location.pathname + window.location.search + window.location.hash;
-  },
-  checkForMultipleOperators: function(value) {
+  checkForMultipleOperators: function (value) {
     const last = this.display[this.display.length - 1];
     if (last == "+" || last == "-" || last == "×" || last == "÷") {
       alert("You cannot have multiple adjacent operators!");
