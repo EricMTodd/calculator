@@ -3,6 +3,14 @@ const calculator = {
   display: "",
 
   // Operations
+  leftBracket: function() {
+    const value = "(";
+    this.checkForMultipleOperators(value);
+  },
+  rightBracket: function() {
+    const value = ")";
+    this.checkForMultipleOperators(value);
+  },
   add: function () {
     const value = "+";
     this.checkForMultipleOperators(value);
