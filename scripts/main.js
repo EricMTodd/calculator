@@ -28,7 +28,12 @@ const calculator = {
     this.checkForMultipleOperators(value);
   },
   evaluate: function () {
-    console.log("EVALUATE");
+    console.log(this.display);
+    console.log(typeof(this.display));
+    for (let i = 0; i < this.display.length; i++) {
+      console.log(this.display[i]);
+      console.log(this.)
+    };
   },
 
   // Values
@@ -74,7 +79,7 @@ const calculator = {
   },
   decimal: function () {
     const value = ".";
-    this.updateDisplay(value);
+    this.checkForMultipleDecimals(value);
   },
 
   // Other methods
@@ -87,8 +92,16 @@ const calculator = {
   },
   checkForMultipleOperators: function (value) {
     const last = this.display[this.display.length - 1];
-    if (last == "+" || last == "-" || last == "×" || last == "÷") {
+    if (last == "+" || last == "-" || last == "×" || last == "÷" || last == ".") {
       alert("You cannot have multiple adjacent operators!");
+    } else {
+      this.updateDisplay(value);
+    }
+  },
+  checkForMultipleDecimals: function (value) {
+    const last = this.display[this.display.length - 1];
+    if (last == ".") {
+      alert("You cannot have multiple adjacent decimals!");
     } else {
       this.updateDisplay(value);
     }
