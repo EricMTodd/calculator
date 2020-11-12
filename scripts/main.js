@@ -29,11 +29,6 @@ const calculator = {
   },
   evaluate: function () {
     console.log(this.display);
-    console.log(typeof(this.display));
-    for (let i = 0; i < this.display.length; i++) {
-      console.log(this.display[i]);
-      console.log(this.)
-    };
   },
 
   // Values
