@@ -1,80 +1,67 @@
 const calculator = {
+
+
   // Display array
   display: "",
 
   // Operations
+  operators: ["(", ")", "+", "-", "×", "÷"],
   leftBracket: function() {
-    const value = "(";
-    this.checkForMultipleOperators(value);
+    this.checkForMultipleOperators(this.operators[0]);
   },
   rightBracket: function() {
-    const value = ")";
-    this.checkForMultipleOperators(value);
+    this.checkForMultipleOperators(this.operators[1]);
   },
   add: function () {
-    const value = "+";
-    this.checkForMultipleOperators(value);
+    this.checkForMultipleOperators(this.operators[2]);
   },
   subtract: function () {
-    const value = "-";
-    this.checkForMultipleOperators(value);
+    this.checkForMultipleOperators(this.operators[3]);
   },
   multiply: function () {
-    const value = "×";
-    this.checkForMultipleOperators(value);
+    this.checkForMultipleOperators(this.operators[4]);
   },
   divide: function () {
-    const value = "÷";
-    this.checkForMultipleOperators(value);
+    this.checkForMultipleOperators(this.operators[5]);
   },
   evaluate: function () {
     console.log(this.display);
   },
 
   // Values
+  values: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".",],
   one: function () {
-    const value = "1";
-    this.updateDisplay(value);
+    this.updateDisplay(this.values[0]);
   },
   two: function () {
-    const value = "2";
-    this.updateDisplay(value);
+    this.updateDisplay(this.values[1]);
   },
   three: function () {
-    const value = "3";
-    this.updateDisplay(value);
+    this.updateDisplay(this.values[2]);
   },
   four: function () {
-    const value = "4";
-    this.updateDisplay(value);
+    this.updateDisplay(this.values[3]);
   },
   five: function () {
-    const value = "5";
-    this.updateDisplay(value);
+    this.updateDisplay(this.values[4]);
   },
   six: function () {
-    const value = "6";
-    this.updateDisplay(value);
+    this.updateDisplay(this.values[5]);
   },
   seven: function () {
-    const value = "7";
-    this.updateDisplay(value);
+    this.updateDisplay(this.values[6]);
   },
   eight: function () {
-    const value = "8";
-    this.updateDisplay(value);
+    this.updateDisplay(this.values[7]);
   },
   nine: function () {
-    const value = "9";
-    this.updateDisplay(value);
+    this.updateDisplay(this.values[8]);
   },
   zero: function () {
-    const value = "0";
-    this.updateDisplay(value);
+    this.updateDisplay(this.values[9]);
   },
   decimal: function () {
-    const value = ".";
-    this.checkForMultipleDecimals(value);
+    this.checkForMultipleDecimals(this.values[10]);
   },
 
   // Other methods
