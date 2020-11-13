@@ -65,6 +65,10 @@ const calculator = {
   },
 
   // Other methods
+  // backspace: function () {
+  //   this.display = this.display.slice(0, -1);
+  //   this.updateDisplay(this.display);
+  // },
   clear: function () {
     window.location.href = window.location.pathname + window.location.search + window.location.hash;
   },
