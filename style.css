@@ -24,6 +24,8 @@ body {
   cursor: pointer;
   font-size: 2rem;
   border: 1px solid black;
+  color: white;
+  background-color: rgb(150, 150, 150);
   outline: none;
 }
 
@@ -37,6 +39,7 @@ body {
 
 .display {
   background-color: black;
+  color: white;
   grid-column: 1 / -1;
   display: flex;
   align-items: flex-end;
