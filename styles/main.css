@@ -1,0 +1,51 @@
+:root {
+	--nav-height: 50px;
+}
+
+body {
+	margin: 0 auto;
+}
+
+nav {
+	height: var(--nav-height);
+	background-color: black;
+	color: white;
+	padding: 0 15px;
+	display: flex;
+	align-items: center;
+	position: sticky;
+	top: 0;
+}
+
+main {
+	height: calc(100vh - var(--nav-height));
+	background-color: #1c1c1c;
+	color: white;
+	padding: var(--nav-height) 16.5%;
+}
+
+footer {
+	height: 100px;
+	background-color: black;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h1 {
+	margin: 0;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	color: goldenrod;
+}
+
+a:active {
+	color: white;
+}
