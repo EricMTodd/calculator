@@ -71,17 +71,23 @@ a:active {
 	border-radius: 10px;
 }
 
-.display {
-	border: 2px solid white;
-	border-radius: 15px;
-}
-
 .row {
 	height: 15%;
 	width:90%;
 	display: flex;
 	justify-content: space-evenly;
 	gap: 5px;
+}
+
+.display {
+	border: 2px solid white;
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	font-size: 32px;
+	padding: 0 15px;
+	overflow-x: scroll;
 }
 
 .button {
@@ -100,6 +106,5 @@ a:active {
 }
 
 .button:active {
-	background-color: #1c1c1c;
-	color: white;
+	background-color: goldenrod;
 }
