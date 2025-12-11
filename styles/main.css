@@ -1,5 +1,12 @@
+/*Variables*/
 :root {
 	--nav-height: 50px;
+}
+
+
+/*Element styles*/
+* {
+	box-sizing: border-box;
 }
 
 body {
@@ -22,6 +29,8 @@ main {
 	background-color: #1c1c1c;
 	color: white;
 	padding: var(--nav-height) 16.5%;
+	display: flex;
+	justify-content: center;
 }
 
 footer {
@@ -47,5 +56,50 @@ a:hover {
 }
 
 a:active {
+	color: white;
+}
+
+/*Class styles*/
+.frame {
+	height: 600px;
+	width: 400px;
+	border: 2px solid white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center	;
+	border-radius: 10px;
+}
+
+.display {
+	border: 2px solid white;
+	border-radius: 15px;
+}
+
+.row {
+	height: 15%;
+	width:90%;
+	display: flex;
+	justify-content: space-evenly;
+	gap: 5px;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 48px;
+	border: 2px solid white;
+	flex: 1 1 0;
+	border-radius: 50%;
+}
+
+.button:hover {
+	background-color: white;
+	color: black;
+}
+
+.button:active {
+	background-color: #1c1c1c;
 	color: white;
 }
