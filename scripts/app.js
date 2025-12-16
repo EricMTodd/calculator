@@ -26,35 +26,19 @@ const pressDeleteButton = (event) => {
 }
 
 const evaluateExpression = (event) => {
-	let n = ""
-	let queue = []
-	let stack = []
+	n = ""
+	const queue = []
+	const stack = []
 
-	Array.from(currentExpression).forEach(element => {
-		let lastOfStack = stack[stack.length - 1]
-		
-		if (Number.isInteger(Number(element))) {
-			n += element
+	Array.from(currentExpression).forEach(item => {
+		if (Number.isInteger(Number(item))) {
+			queue.push(item)
 		} else {
-			queue.push(n)
-			n = ""
-			if (element === "+" || element === "-") {
-				if (lastOfStack === "×" || lastOfStack === "÷") {
-					queue.push(lastOfStack)
-					stack.pop()
-					stack.push(element)
-				} else {
-					stack.push(element)
-				}
-			} else {
-				stack.push(element)
-			}
+			stack.push(item)
 		}
 	})
-	queue.push(n)
-	n = ""
-	console.log(queue)
-	console.log(stack)
+	console.log(`Queue: ${queue}`)
+	console.log(`Stack: ${stack}`)
 }
 
 // Event listeners
