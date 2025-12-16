@@ -25,20 +25,83 @@ const pressDeleteButton = (event) => {
 	display.textContent = currentExpression
 }
 
+evaluatePostFix = (rpnQueue) => {
+	const operandStack = []
+
+	rpnQueue.forEach(item => {
+		if(!isNaN(parseFloat(item)) && isFinite(item) && item !== "") {
+			operandStack.push(parseFloat(item))
+		} else {
+			const operandB = operandStack.pop()
+			const operandA = operandStack.pop()
+			let result = 0
+			if (item === "+") {
+				result = operandA + operandB
+			}
+			if (item === "-") {
+				result = operandA - operandB
+			}
+			if (item === "×") {
+				result = operandA * operandB
+			}
+			if (item === "÷") {
+				result = operandA / operandB
+			}
+			operandStack.push(result)
+		}
+	})
+	return operandStack.pop()
+}
+
 const evaluateExpression = (event) => {
+	// Shunting Yard Algorithm
 	n = ""
 	const queue = []
 	const stack = []
 
 	Array.from(currentExpression).forEach(item => {
 		if (Number.isInteger(Number(item))) {
-			queue.push(item)
+			n += item
 		} else {
-			stack.push(item)
+			queue.push(n)
+			n = ""
+			if (item === "(") {
+				stack.push(item)
+			} else if (item === ")") {
+				while (stack.length > 0 && stack[stack.length - 1] !== "(") {
+					queue.push(stack.pop())
+				}
+				stack.pop()
+			} else {
+				if (item === "×" || item === "÷") {
+					while (stack.length > 0 && stack[stack.length - 1] !== "(" && (stack[stack.length -1] === "×" || stack[stack.length - 1] === "÷")) {
+						queue.push(stack.pop())
+					}
+				} else if (item === "+" || item === "-") {
+					while (stack.length > 0 && stack[stack.length - 1] !== "(") {
+						let top = stack[stack.length - 1]
+						if (top === "×" || top === "÷" || top === "+" || top === "-") {
+							queue.push(stack.pop())
+						} else {
+							break
+						}
+					}
+				} 
+				stack.push(item)
+			}
 		}
 	})
-	console.log(`Queue: ${queue}`)
-	console.log(`Stack: ${stack}`)
+	queue.push(n)
+	n = ""
+	while (stack.length > 0) {
+		queue.push(stack.pop())
+	}
+
+	// Postfix evalution
+	const finalResult = evaluatePostFix(queue)
+	currentExpression = finalResult
+	display.textContent = currentExpression
+	return currentExpression
 }
 
 // Event listeners
