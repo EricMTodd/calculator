@@ -71,8 +71,16 @@ const shuntingYardAlgorithm = (expression) => {
 	return queue
 }
 
-const reversePolishNotationEvaluation = (arr) => {
-	return arr
+const reversePolishNotationEvaluation = (array) => {
+	let operandA = 0
+	let operandB = 0
+	let stack = []
+	array.forEach(token => {
+		switch(token) {
+		default:
+			
+		}
+	})
 }
 
 const evaluateExpression = (expression) =>{
