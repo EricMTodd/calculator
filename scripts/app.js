@@ -13,10 +13,8 @@ const shuntingYardAlgorithm = (expression) => {
 	for (let i = 0; i < expression.length; i++) {
 		if (i !== 0 && (expression[i] == '(')) {
 			expression.splice(i, 0, '×')
-			i++
 		}
 	}
-
 	let n = ''
 	let queue = []
 	let stack = []
