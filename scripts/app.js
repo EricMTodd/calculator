@@ -7,12 +7,16 @@ const buttons = Array.from(document.querySelectorAll('.button'))
  //  ___             _   _             
  // | __|  _ _ _  __| |_(_)___ _ _  ___
  // | _| || | ' \/ _|  _| / _ \ ' \(_-<
- // |_| \_,_|_||_\__|\__|_\___/_||_/__/                                                                                                                     
+ // |_| \_,_|_||_\__|\__|_\___/_||_/__/   
 const shuntingYardAlgorithm = (expression) => {
 	expression = expression.split('')
 	for (let i = 0; i < expression.length; i++) {
-		if (i !== 0 && (expression[i] == '(')) {
+		if (i !== 0 && (expression[i] === '(' && expression[i - 1] === '-')) {
+			expression.splice(i, 0, '1')
+		}
+		if (i !== 0 && (expression[i] === '(')) {
 			expression.splice(i, 0, '×')
+			i++
 		}
 	}
 	let n = ''
@@ -38,23 +42,17 @@ const shuntingYardAlgorithm = (expression) => {
 				break
 			case '+':
 			case '-':
-				if (stack[stack.length - 1] === '+' || stack[stack.length - 1] === '-' || stack[stack.length - 1] === '×' || stack[stack.length - 1] === '÷') {
-					while (stack.length > 0 && stack[stack.length - 1] !== '(') {
-						queue.push(stack.pop())
-					}
-				} else {
-					stack.push(token)
+				while (stack.length > 0 && stack[stack.length - 1] !== '(' && (stack[stack.length - 1] === '+' || stack[stack.length - 1] === '-' || stack[stack.length - 1] === '×' || stack[stack.length - 1] === '÷')) {
+					queue.push(stack.pop())
 				}
+				stack.push(token)
 				break
 			case '×':
 			case '÷':
-				if (stack[stack.length - 1] === '×' || stack[stack.length - 1] === '÷') {
-					while (stack.length > 0 && stack[stack.length - 1] !== '(') {
-						queue.push(stack.pop())
-					}
-				} else {
-					stack.push(token)
+				while (stack.length > 0 && stack[stack.length - 1] !== '(' && (stack[stack.length - 1] === '×' || stack[stack.length - 1] === '÷')) {
+					queue.push(stack.pop())
 				}
+				stack.push(token)
 				break
 			default:
 				n += token
@@ -75,16 +73,44 @@ const reversePolishNotationEvaluation = (array) => {
 	let operandA = 0
 	let operandB = 0
 	let stack = []
+	let result = 0
 	array.forEach(token => {
 		switch(token) {
+		case '×':
+			operandB = stack.pop()
+			operandA = stack.pop()
+			result = operandA * operandB
+			stack.push(result)
+			break
+		case '÷':
+			operandB = stack.pop()
+			operandA = stack.pop()
+			result = operandA / operandB
+			stack.push(result)
+			break
+		case '+':
+			operandB = stack.pop()
+			operandA = stack.pop()
+			result = operandA + operandB
+			stack.push(result)
+			break
+		case '-':
+			operandB = stack.pop()
+			operandA = stack.pop()
+			result = operandA - operandB
+			stack.push(result)
+			break
 		default:
-			
+			stack.push(token)
 		}
 	})
+	result = stack[0]
+	display.textContent = result
+	return result
 }
 
 const evaluateExpression = (expression) =>{
-	console.log(reversePolishNotationEvaluation(shuntingYardAlgorithm(expression)))
+	reversePolishNotationEvaluation(shuntingYardAlgorithm(expression))
 }
  //  ___             _     _ _    _                       
  // | __|_ _____ _ _| |_  | (_)__| |_ ___ _ _  ___ _ _ ___
