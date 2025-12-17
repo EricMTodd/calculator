@@ -9,6 +9,7 @@ const ReversePolishNotationEvaluation = () => {
 }
 
 const ShuntingYardAlgorithm = (expression) => {
+	// Splits the expression string and inserts a multiplication symbol before any opening parenthesis
 	expression = expression.split('')
 	for (let i = 0; i < expression.length; i++) {
 		if (expression[i] === '(') {
@@ -16,9 +17,17 @@ const ShuntingYardAlgorithm = (expression) => {
 			i++
 		}
 	}
+
+	// Establish an accumulator for multidigit numbers
 	let n = ''
+
+	// Establish a queue for output
 	let queue = []
+
+	// Establish a stack for operators
 	let stack = []
+
+	// Iterates over each element of the expression array (to be continued)
 	expression.forEach(token => {
 		if (!isNaN(parseFloat(token)) && isFinite(token) || token === '.') {
 			n += token
@@ -72,6 +81,10 @@ const ShuntingYardAlgorithm = (expression) => {
 	console.log(`Queue: ${queue}`)
 }
 
+const evaluateExpression = () =>{
+	// some code executing the above functions in a single function.
+}
+
 
 // Assign event listeners
 buttons.forEach(button => {
@@ -80,7 +93,7 @@ buttons.forEach(button => {
 		case "C":
 			display.textContent = ""
 			break
-		case "Del":
+		case "←":
 			display.textContent = display.textContent.slice(0, -1)
 			break
 		case "=":
